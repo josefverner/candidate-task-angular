@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Max",
+    "lastname": "Mustermann",
+    "email": "max.mustermann@test.com",
+    "phone": "0123456789",
+    "username": "max",
+    "password": "123456",
+    "joinedDate": "2021-01-01",
+    "lastLogin": "2021-01-01",
+    "role": "User",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "name": "John",
+    "lastname": "Doe",
+    "email": "john.doe@test.com",
+    "phone": "9876543210",
+    "username": "john",
+    "password": "123456",
+    "joinedDate": "2021-01-01",
+    "lastLogin": "2021-01-01",
+    "role": "User",
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "name": "Jane",
+    "lastname": "Doe",
+    "email": "jane.doe@test.com",
+    "phone": "1234567890",
+    "username": "jane",
+    "password": "123456",
+    "joinedDate": "2021-01-01",
+    "lastLogin": "2021-01-01",
+    "role": "User",
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "name": "Admin",
+    "lastname": "Admin",
+    "email": "admin@test.com",
+    "phone": "0987654321",
+    "username": "admin",
+    "password": "admin",
+    "joinedDate": "2021-01-01",
+    "lastLogin": "2021-01-01",
+    "role": "Admin",
+    "status": "Active"
+  }
+]
