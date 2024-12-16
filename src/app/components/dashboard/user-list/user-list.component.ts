@@ -4,11 +4,12 @@ import { Observable, tap } from 'rxjs';
 import { User } from 'src/app/types/user.type';
 import { Store } from '@ngrx/store';
 import { selectUsers } from 'src/app/store/user.selectors';
+import { UserCardComponent } from '../user-card/user-card.component';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, UserCardComponent],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
 })
@@ -18,9 +19,6 @@ export class UserListComponent {
   store = inject(Store);
 
   constructor() {
-    console.log('UserListComponent');
     this.users$ = this.store.select(selectUsers);
-    //this.users$ = this.store.select('user');
-    //  this.users$.subscribe((users) => console.log(users));
   }
 }
