@@ -6,11 +6,12 @@ export type User = {
   name: string;
   lastname: string;
   email: string;
-  phome: string;
+  phone: string;
   username: string;
   password: string;
   joinedDate: string;
   lastLogin: string;
+  avatar?: string;
   role: UserRole;
   status: UserStatus;
 };
