@@ -1,8 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadUsers } from './store/user.actions';
+
+import { loadUsers, loadUsersSuccess } from './store/user.actions';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LocalStorageService } from './service/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +15,17 @@ import { HeaderComponent } from './components/header/header.component';
 })
 export class AppComponent implements OnInit {
   title = 'Userlane Angular Task';
+
   store = inject(Store);
+  localStorageService = inject(LocalStorageService);
 
   ngOnInit(): void {
-    this.store.dispatch(loadUsers());
+    const storedUsers = this.localStorageService.getData();
+
+    if (storedUsers.length > 0) {
+      this.store.dispatch(loadUsersSuccess({ users: storedUsers }));
+    } else {
+      this.store.dispatch(loadUsers());
+    }
   }
 }
