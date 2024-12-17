@@ -1,1 +1,13 @@
-<p>header works!</p>
+<header>
+  <h1>{{ title() }}</h1>
+  <div class="dropdown-container">
+    <label for="dropdown">Logged user type:</label>
+    <select id="dropdown" (change)="switchUserType($event)">
+      @for (userRole of userRoles; track $index) {
+        <option [value]="userRole" [selected]="userRole === userRoleSelected">
+          {{ userRole }}
+        </option>
+      }
+    </select>
+  </div>
+</header>

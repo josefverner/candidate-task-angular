@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/types/user.type';
 import { Store } from '@ngrx/store';
 import { selectUsers } from 'src/app/store/user.selectors';

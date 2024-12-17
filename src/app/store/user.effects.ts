@@ -1,34 +1,27 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap, tap } from 'rxjs';
+import { catchError, EMPTY, map, switchMap, tap } from 'rxjs';
 import { loadUsers, loadUsersSuccess } from './user.actions';
-import { User } from '../types/user.type';
-
-const DATA_URL = '/assets/data/users.mock.json';
+import { UserService } from '../service/user.service';
 
 @Injectable()
 export class UserEffects {
   actions$ = inject(Actions);
-  http = inject(HttpClient);
+  userService$ = inject(UserService);
 
-  loadUser = createEffect(() => {
+  loadUsers = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadUsers),
       switchMap(() => {
-        // return this.http.get<User[]>(DATA_URL).pipe(
-        //   tap((users) => console.log(users)),
-        //   map((users) => loadUsersSuccess({ users }))
-        // );
-        return this.http.get<User[]>(DATA_URL).pipe(
-          tap((users) => console.log(users)),
-          map((users) => loadUsersSuccess({ users }))
-          // catchError((error) => {
-          //   console.error('Error loading users:', error);
-          //   return EMPTY; // Or dispatch a failure action
-          // })
+        return this.userService$.fetchAllUsers().pipe(
+          //tap((users) => console.log(users)),
+          map((users) => loadUsersSuccess({ users })),
+          catchError((error) => {
+            console.error('Error loading users:', error);
+            return EMPTY;
+          }),
         );
-      })
+      }),
     );
   });
 }
