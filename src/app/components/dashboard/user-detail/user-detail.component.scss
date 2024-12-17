@@ -1,0 +1,44 @@
+.user-detail {
+  max-width: 480px;
+  margin: 10px auto 0;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  .f-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    label {
+      font-size: 14px;
+      width: 25%;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .f-input {
+      width: 70%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .f-select {
+      width: 70%;
+      padding: 3px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  }
+}

@@ -8,6 +8,8 @@
       <fa-icon [icon]="icons.faEnvelope"></fa-icon> {{ user().email }}
     </p>
     <p class="user-card__role">{{ user().role }}</p>
-    <p class="user-card__status">{{ user().status }}</p>
+    <p class="user-card__status" [ngClass]="statusHighlight">
+      {{ user().status }}
+    </p>
   </div>
 </div>

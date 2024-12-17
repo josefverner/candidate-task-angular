@@ -2,3 +2,9 @@
   padding-top: 50px;
   display: block;
 }
+
+@media screen and (max-width: 480px) {
+  :host {
+    padding-top: 0;
+  }
+}

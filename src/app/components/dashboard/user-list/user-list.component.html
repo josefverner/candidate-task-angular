@@ -1,6 +1,33 @@
-@let users = users$ | async;
+<div class="filter-container">
+  <input
+    type="text"
+    placeholder="Filter by name or lastname"
+    [formControl]="nameFilter"
+    class="filter-input"
+  />
+  <input
+    type="text"
+    placeholder="Filter by email"
+    [formControl]="emailFilter"
+    class="filter-input"
+  />
+  <div class="checkbox-group">
+    @for (status of userStatusEnum | keyvalue; let i = $index; track i) {
+      <label>
+        <input
+          type="checkbox"
+          [value]="status.key"
+          (change)="toggleStatusFilter(status.key, $event)"
+        />
+        {{ status.value }}
+      </label>
+    }
+  </div>
+</div>
+
+@let filteredUsers = filteredUsers$ | async;
 <div class="user-list">
-  @for (user of users; track user.id) {
-    <app-user-card [user]="user" />
+  @for (user of filteredUsers; track user.id) {
+    <app-user-card [user]="user" [routerLink]="['/user', user.id]" />
   }
 </div>

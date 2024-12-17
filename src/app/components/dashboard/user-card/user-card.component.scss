@@ -6,7 +6,7 @@
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
+  cursor: pointer;
 
   &__avatar {
     flex-shrink: 0;
@@ -35,5 +35,20 @@
     margin: 0;
     font-size: 14px;
     color: #666;
+  }
+
+  &__status {
+    &.active {
+      color: #1b6f2e;
+      text-shadow: 0 0 1px #1b6f2e;
+    }
+    &.inactive {
+      color: #dc3545;
+      text-shadow: 0 0 1px #dc3545;
+    }
+    &.suspended {
+      color: #7e7e7e;
+      text-shadow: 0 0 1px #7e7e7e;
+    }
   }
 }

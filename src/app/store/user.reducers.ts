@@ -1,5 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadUsers, loadUsersSuccess, setUserRole } from './user.actions';
+import {
+  //addUser,
+  loadUsers,
+  loadUsersSuccess,
+  setUserRole,
+  updateUser,
+} from './user.actions';
 import { User } from '../types/user.type';
 import { UserRole } from '../enums/user-role.enum';
 
@@ -22,6 +28,22 @@ export const userReducer = createReducer<UserState>(
     ...state,
     users,
   })),
+  // on(updateUser, (state, { user }) => ({
+  //   ...state,
+  //   users: state.users.map((mappedUser) =>
+  //     mappedUser.id === user.id ? user : mappedUser,
+  //   ),
+  // })),
+  on(updateUser, (state, { user }) => ({
+    ...state,
+    users: state.users.map((mappedUser) =>
+      mappedUser.id === user.id ? { ...mappedUser, ...user } : mappedUser,
+    ),
+  })),
+  // on(addUser, (state, { user }) => ({
+  //   ...state,
+  //   users: [...state.users, { ...user, id: state.users.length + 1 }],
+  // })),
 );
 
 export const userRoleReducer = createReducer<UserRole>(

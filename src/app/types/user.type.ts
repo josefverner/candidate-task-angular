@@ -6,12 +6,8 @@ export type User = {
   name: string;
   lastname: string;
   email: string;
-  phone: string;
-  username: string;
-  password: string;
-  joinedDate: string;
-  lastLogin: string;
-  avatar?: string;
+  joiningDate: string;
   role: UserRole;
   status: UserStatus;
+  avatar?: string;
 };

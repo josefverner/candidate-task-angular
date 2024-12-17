@@ -23,4 +23,8 @@ export class UserCardComponent {
       ? AVATAR_PATH + this.user().avatar
       : AVATAR_PATH + AVATAR_DUMMY;
   }
+
+  get statusHighlight(): string {
+    return (this.user().status as string).toLowerCase();
+  }
 }
