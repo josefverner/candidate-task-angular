@@ -1,6 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserRole } from 'src/app/enums/user-role.enum';
+import { Store } from '@ngrx/store';
+import { setUserRole } from 'src/app/store/user.actions';
+import { Observable } from 'rxjs';
+import { selectUserRole } from 'src/app/store/user.selectors';
 
 @Component({
   selector: 'app-header',
@@ -11,15 +15,17 @@ import { UserRole } from 'src/app/enums/user-role.enum';
 })
 export class HeaderComponent {
   title = input.required<string>();
-  userRoleSelected = UserRole.User;
+  store = inject(Store);
+
+  userRole$: Observable<UserRole> = this.store.select(selectUserRole);
 
   userRoles: UserRole[] = Object.keys(UserRole).map(
-    (personNamedIndex) => UserRole[personNamedIndex as keyof typeof UserRole],
+    (key) => UserRole[key as keyof typeof UserRole],
   );
 
   switchUserType(event: Event): void {
-    const selectedUserRole = (event.target as HTMLSelectElement).value;
-    this.userRoleSelected = selectedUserRole as UserRole;
-    console.log('User type switched to:', selectedUserRole);
+    const selectedUserRole = (event.target as HTMLSelectElement)
+      .value as UserRole;
+    this.store.dispatch(setUserRole({ userRole: selectedUserRole }));
   }
 }

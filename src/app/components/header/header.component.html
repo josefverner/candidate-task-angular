@@ -4,7 +4,10 @@
     <label for="dropdown">Logged user type:</label>
     <select id="dropdown" (change)="switchUserType($event)">
       @for (userRole of userRoles; track $index) {
-        <option [value]="userRole" [selected]="userRole === userRoleSelected">
+        <option
+          [value]="userRole"
+          [selected]="(userRole$ | async) === userRole"
+        >
           {{ userRole }}
         </option>
       }

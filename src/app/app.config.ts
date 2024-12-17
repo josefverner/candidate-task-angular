@@ -6,7 +6,7 @@ import { provideStore } from '@ngrx/store';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 
 import { routes } from './app.routes';
-import { userReducer } from './store/user.reducers';
+import { userReducer, userRoleReducer } from './store/user.reducers';
 import { provideEffects } from '@ngrx/effects';
 import { UserEffects } from './store/user.effects';
 
@@ -16,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore({
       user: userReducer,
+      userRole: userRoleReducer,
       router: routerReducer,
     }),
     provideEffects([UserEffects]),
