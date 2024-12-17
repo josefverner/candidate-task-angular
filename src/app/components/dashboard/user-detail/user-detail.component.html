@@ -8,7 +8,13 @@
     <form [formGroup]="userForm">
       <div class="f-line">
         <label for="name">Frist name:</label>
-        <input id="name" type="text" formControlName="name" class="f-input" />
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          class="f-input"
+          [readonly]="userRole !== 'Admin'"
+        />
       </div>
       <div class="f-line">
         <label for="lastname">Last name:</label>
@@ -17,11 +23,18 @@
           type="text"
           formControlName="lastname"
           class="f-input"
+          [readonly]="userRole !== 'Admin'"
         />
       </div>
       <div class="f-line">
         <label for="email">Email:</label>
-        <input id="email" type="text" formControlName="email" class="f-input" />
+        <input
+          id="email"
+          type="text"
+          formControlName="email"
+          class="f-input"
+          [readonly]="userRole !== 'Admin'"
+        />
       </div>
       <div class="f-line">
         <label for="joiningDate">Joining date:</label>
@@ -30,32 +43,38 @@
           type="text"
           formControlName="joiningDate"
           class="f-input"
+          [readonly]="userRole !== 'Admin'"
         />
       </div>
-      <div class="f-line">
-        <label for="status">Status:</label>
-        <select id="status" formControlName="status" class="f-select">
-          @for (status of userStatusEnum | keyvalue; let i = $index; track i) {
-            <option [value]="status.key">{{ status.value }}</option>
-          }
-        </select>
-      </div>
-      <div class="f-line">
-        <label for="role">Role:</label>
-        <select id="role" formControlName="role" class="f-select">
-          @for (role of userRoleEnum | keyvalue; let i = $index; track i) {
-            <option [value]="role.key">{{ role.value }}</option>
-          }
-        </select>
-      </div>
-
-      @if (userRole === "Admin") {
+      @if (userRole !== "User") {
         <div class="f-line">
-          <button type="button" [routerLink]="['/users']">Cancel</button>
-          <button type="button" (click)="saveUser()">Save</button>
-          <!--button type="button" (click)="deleteUser()">Delete</button--->
+          <label for="status">Status:</label>
+          <select id="status" formControlName="status" class="f-select">
+            @for (
+              status of userStatusEnum | keyvalue;
+              let i = $index;
+              track i
+            ) {
+              <option [value]="status.key">{{ status.value }}</option>
+            }
+          </select>
+        </div>
+        <div class="f-line">
+          <label for="role">Role:</label>
+          <select id="role" formControlName="role" class="f-select">
+            @for (role of userRoleEnum | keyvalue; let i = $index; track i) {
+              <option [value]="role.key">{{ role.value }}</option>
+            }
+          </select>
         </div>
       }
+
+      <div class="f-line">
+        <button type="button" [routerLink]="['/users']">Back</button>
+        @if (userRole !== "User") {
+          <button type="button" (click)="saveUser()">Save</button>
+        }
+      </div>
     </form>
   }
 </div>

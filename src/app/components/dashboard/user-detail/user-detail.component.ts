@@ -54,6 +54,16 @@ export class UserDetailComponent {
         this.userForm.patchValue(user);
       }
     });
+
+    this.userRole$.subscribe((role) => {
+      if (role === UserRole.User) {
+        this.userForm.get('role')!.disable();
+        this.userForm.get('status')!.disable();
+      } else {
+        this.userForm.get('role')!.enable();
+        this.userForm.get('status')!.enable();
+      }
+    });
   }
 
   saveUser(): void {
