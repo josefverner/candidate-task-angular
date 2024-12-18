@@ -35,13 +35,6 @@ export class UserEffects {
     );
   });
 
-  loadUsersOnUserRoleChange = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(setUserRole),
-      map(() => loadUsers()),
-    );
-  });
-
   private getFilteredUsers(users: User[], userRole: UserRole): User[] {
     return users.filter((user) => {
       switch (userRole) {
