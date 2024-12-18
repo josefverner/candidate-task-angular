@@ -23,7 +23,7 @@ const mockUsers: User[] = [
     id: 2,
     name: 'Maximine',
     lastname: 'Mustermann',
-    email: 'Mmximine.mustermann@test.com',
+    email: 'maximine.mustermann@test.com',
     joiningDate: '2021-01-01',
     role: UserRole.Admin,
     status: UserStatus.Active,
