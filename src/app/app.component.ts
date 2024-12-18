@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { loadUsers, loadUsersSuccess } from './store/user.actions';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
-import { LocalStorageService } from './service/local-storage.service';
+import { LocalStorageService } from './services/local-storage.service';
 
 @Component({
   selector: 'app-root',

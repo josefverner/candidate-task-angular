@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, EMPTY, map, mergeMap, tap, withLatestFrom } from 'rxjs';
 import { loadUsers, loadUsersSuccess } from './user.actions';
-import { UserService } from '../service/user.service';
+import { UserService } from '../services/user.service';
 import { selectUserRole } from './user.selectors';
 import { filterUsersByRole } from '../utils/user-filter';
 

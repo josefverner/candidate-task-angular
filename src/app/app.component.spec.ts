@@ -3,7 +3,7 @@ import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
-import { LocalStorageService } from './service/local-storage.service';
+import { LocalStorageService } from './services/local-storage.service';
 import { loadUsers, loadUsersSuccess } from './store/user.actions';
 import { User } from './types/user.type';
 import { UserRole } from './enums/user-role.enum';

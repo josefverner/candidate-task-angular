@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { LocalStorageService } from '../service/local-storage.service';
+import { LocalStorageService } from '../services/local-storage.service';
 import { Store } from '@ngrx/store';
 import { loadUsersSuccess, updateUser } from './user.actions';
 import { tap, withLatestFrom } from 'rxjs/operators';
