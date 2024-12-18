@@ -14,9 +14,4 @@ export class UserService {
   fetchAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(DATA_MOCK_URL);
   }
-
-  fetchUserById(id: number): Observable<User> {
-    return of({} as User);
-    //return this.http.get<User>(`${DATA_MOCK_URL}/${id}`);
-  }
 }

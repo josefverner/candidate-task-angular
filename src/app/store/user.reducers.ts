@@ -1,6 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
 import {
-  //addUser,
   loadUsers,
   loadUsersSuccess,
   setUserRole,
@@ -28,22 +27,12 @@ export const userReducer = createReducer<UserState>(
     ...state,
     users,
   })),
-  // on(updateUser, (state, { user }) => ({
-  //   ...state,
-  //   users: state.users.map((mappedUser) =>
-  //     mappedUser.id === user.id ? user : mappedUser,
-  //   ),
-  // })),
   on(updateUser, (state, { user }) => ({
     ...state,
     users: state.users.map((mappedUser) =>
       mappedUser.id === user.id ? { ...mappedUser, ...user } : mappedUser,
     ),
   })),
-  // on(addUser, (state, { user }) => ({
-  //   ...state,
-  //   users: [...state.users, { ...user, id: state.users.length + 1 }],
-  // })),
 );
 
 export const userRoleReducer = createReducer<UserRole>(

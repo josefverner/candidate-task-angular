@@ -18,8 +18,3 @@ export const updateUser = createAction(
   '[User Detail] Update User',
   props<{ user: User }>(),
 );
-
-// export const addUser = createAction(
-//   '[User Detail] Add User',
-//   props<{ user: User }>(),
-// );

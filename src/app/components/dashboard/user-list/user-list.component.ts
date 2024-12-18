@@ -10,7 +10,7 @@ import {
   startWith,
 } from 'rxjs';
 import { User } from 'src/app/types/user.type';
-import { selectFilteredUsers, selectUsers } from 'src/app/store/user.selectors';
+import { selectFilteredUsers } from 'src/app/store/user.selectors';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UserStatus } from 'src/app/enums/user-status.enum';
