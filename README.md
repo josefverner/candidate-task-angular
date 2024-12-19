@@ -24,10 +24,12 @@ Run `ng test` to run the unit tests.
 
 The app is a simple Angular application that displays a list of users. The user data is fetched from a mock API on start and displayed on dashboard. The user can click on a user to view more details.
 
-Users with different roles have different permissions to view users and edit users. The roles are as follows:
+Visitors with different roles have different permissions to view the users and edit users. The roles are as follows:
 
 - **Admin:** Can view all the users and is allowed to edit users.
-- **Manager:** Can view users active and inactve users and has permission to change user's status and role.
+- **Manager:** Can view the active and inactve users and has permission to change user's status and role.
 - **User:** Can only view the active users and isn't allowed to edit users.
 
-The apllication will store the user data in the local storage and will be available on page reload. To reset the data, you can clear the local storage.
+The role of the "logged in" user is emulated and can be changed by selecting a role from the dropdown in the header.
+
+The apllication will store the user data in the local storage and will be available on page reload. To reset the data, you have to clear the local storage.
