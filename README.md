@@ -1,65 +1,33 @@
-## Senior Frontend Engineer Assessment Task
+## Before you start
 
-### **Overview**
+Make sure that you have installed the following tools, the versions used to build and run the app are listed below:
 
-Create an employee management application using Angular, RxJS, and NgRx. The application should allow users to browse a list of
-users, view user details, and edit user details. The goal is to demonstrate your expertise in Angular architecture,
-state management, reactive programming, and writing unit tests.
+1. [Node.js](https://nodejs.org/), used version `v20.14.0`.
+2. [npm](https://www.npmjs.com/), used version `10.0.8`.
+3. [Angular CLI](https://angular.io/cli), used version `17.0.3`.
 
-### **Project Requirements**
+## Installation instructions
 
-**Application Features**
+1. Clone the repository.
+2. Run `npm install` to install the dependencies.
 
-- **User List:**
-  - Display a list of employees with basic information (name, email, role, and status).
-    - You can use mock data or fetch data from a mock API.
-  - Include a way to filter users, e.g. by name, email, or status.
+## Running the app
 
-- **User Details:**
-  - Display detailed information about a selected user (name, email, role, status, joining date).
-  - Include a way to edit the user details.
+1. Run `ng serve` to start the development server.
+2. Navigate to `http://localhost:4200/` to view the app.
 
-**State Management with NgRx**
+## Running the tests
 
-- Implement global state management for users.
-- Create actions, reducers, and selectors for managing user state.
+Run `ng test` to run the unit tests.
 
-**Reactive Programming with RxJS**
+## Application description
 
-- Use RxJS operators to manage state, transform data streams, and handle asynchronous operations.
+The app is a simple Angular application that displays a list of users. The user data is fetched from a mock API on start and displayed on dashboard. The user can click on a user to view more details.
 
-**Unit Testing**
+Users with different roles have different permissions to view users and edit users. The roles are as follows:
 
-- Use Jasmine and Karma to write a few unit tests.
+- **Admin:** Can view all the users and is allowed to edit users.
+- **Manager:** Can view users active and inactve users and has permission to change user's status and role.
+- **User:** Can only view the active users and isn't allowed to edit users.
 
-**Styling**
-
-- Use SCSS for basic styling.
-- You may use Angular Material or any other UI library for a polished UI.
-
-**Documentation**
-
-- Provide a README file with instructions on how to set up and run the application.
-
-### **Optional Features**
-
-- **Persistent Storage:** Use local storage or session storage to persist state across page reloads.
-
-### **Submission Instructions**
-
-1. Fork the repository.
-2. Commit your code regularly to show your progress.
-3. Ensure that the application runs without errors.
-4. Submit the GitHub repository link with your final submission.
-
-### **Evaluation Criteria**
-
-- **Code Quality:** Clean, readable, and maintainable code.
-- **Application Structure:** Proper use of Angular modules, components, services, and NgRx.
-- **State Management:** Effective use of NgRx for global state management.
-- **Reactive Programming:** Demonstration of RxJS for handling data streams and asynchronous operations.
-- **Functionality:** Implementation of all required features and optional features.
-- **Testing:** Coverage and quality of tests.
-- **User Experience:** Aesthetic and functional UI/UX design. Responsive UI is not necessary in this task.
-
-Good luck! We look forward to reviewing your submission.
+The apllication will store the user data in the local storage and will be available on page reload. To reset the data, you can clear the local storage.
